@@ -1,21 +1,16 @@
 import numpy as np
 import plotly.graph_objects as go
 
-def plot_payoff(S, K, option_type='call'):
-    """
-    Plots the payoff diagram at expiration for a call or put option.
-    """
-    S_range = np.linspace(0.5 * K, 1.5 * K, 100)
-
-    if option_type == 'call':
-        payoff = np.maximum(S_range - K, 0)
+def plot_payoff(S, K, option_type):
+    x = list(range(0, int(2 * K) + 1))
+    if option_type.lower() == 'call':
+        y = [max(spot - K, 0) for spot in x]
+    elif option_type.lower() == 'put':
+        y = [max(K - spot, 0) for spot in x]
     else:
-        payoff = np.maximum(K - S_range, 0)
-
+        raise ValueError("option_type must be 'call' or 'put'")
+    
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=S_range, y=payoff, mode='lines', name=f'{option_type.capitalize()} Payoff'))
-    fig.update_layout(title=f'{option_type.capitalize()} Option Payoff',
-                      xaxis_title='Stock Price at Expiration',
-                      yaxis_title='Payoff',
-                      template='plotly_dark')
-    fig.show()
+    fig.add_trace(go.Scatter(x=x, y=y, mode='lines', name='Payoff'))
+    fig.update_layout(title="Option Payoff", xaxis_title="Stock Price", yaxis_title="Payoff")
+    return fig

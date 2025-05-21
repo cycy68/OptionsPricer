@@ -1,37 +1,46 @@
 README.md
 
-# Black-Scholes Option Pricer (with Greeks & Interactive Payoff)
+# Option Pricer - Black-Scholes, Greeks & American Approximation
 
-This Python project allows you to:
+This project allows you to price European and American-style options using the Black-Scholes formula (and approximations), with interactive visualization and a GUI.
 
-- Calculate the price of European call or put options using the Black-Scholes formula
-- Display Greeks: Delta, Gamma, Vega  
--  Show an interactive payoff diagram using Plotly
+## Features
+
+- European Call/Put pricing (Black-Scholes formula)
+- Approximate American option pricing (Barone-Adesi & Whaley style)
+- Greeks calculation (Delta, Gamma, Vega)
+- Interactive Streamlit interface
+- Payoff diagram (Plotly)
 
 ---
 
 ## Project Structure
 
 black_scholes_pricer/
-├── main.py # Main script
+├── app/
+│   ├── __init__.py
+│   └── gui.py
 ├── pricer/
-│ ├── black_scholes.py # Black-Scholes pricing
-│ ├── greeks.py # Greek calculations
-│ └── init.py
+│   ├── __init__.py
+│   ├── black_scholes.py
+│   ├── greeks.py
+│   └── american_option.py
 ├── utils/
-│ ├── plotter.py # Interactive payoff chart
-│ └── init.py
-├── requirements.txt # Project dependencies
-└── README.md # Documentation
-
+│   ├── __init__.py
+│   └── plotter.py
+├── main.py
+├── requirements.txt
+└── README.md
 
 ---
 
 ## How It Works
 
-- Uses the Black-Scholes-Merton model to price European options.
-- Computes Delta, Gamma, Vega (first and second-order sensitivities).
-- Plots the payoff at expiration using an interactive chart.
+- Uses the Black-Scholes-Merton model to price European call and put options.
+- Calculates the key Greeks: Delta, Gamma, and Vega to measure sensitivities of the option price to underlying parameters.
+- Supports approximate pricing of American options using a commonly used heuristic (e.g., Barone-Adesi and Whaley approximation).
+- Provides an interactive payoff chart at expiration, rendered with Plotly and embedded in a Streamlit web interface for easy user interaction.
+- Allows users to input parameters such as underlying price, strike price, volatility, risk-free rate, time to maturity, and option type through a simple GUI.
 
 ---
 
@@ -51,19 +60,8 @@ pip install -r requirements.txt
 ### 3. Run the App
 
 ```bash
-python main.py
+streamlit run main.py
 ```
-
-This will display the option price and Greeks in the console and open an interactive Plotly graph showing the option’s payoff
-
-Example Output:
-
-Call Option Price: 10.45
-Greeks:
-Delta: 0.6368
-Gamma: 0.0188
-Vega: 37.5240
-
 ### 4. Change Option Parameters
 
 Edit the main.py file to change:
