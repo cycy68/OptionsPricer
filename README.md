@@ -40,7 +40,7 @@ black_scholes_pricer/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/cycy68/black_scholes_pricer.git
+git clone https://github.com/cycy68/OptionsPricer.git
 cd black_scholes_pricer
 ```
 
