@@ -16,21 +16,21 @@ This project allows you to price European and American-style options using the B
 
 ## Project Structure
 
-black_scholes_pricer/
-├── app/
-│   ├── __init__.py
-│   └── gui.py
-├── pricer/
-│   ├── __init__.py
-│   ├── black_scholes.py
-│   ├── greeks.py
-│   └── american_option.py
-├── utils/
-│   ├── __init__.py
-│   └── plotter.py
-├── main.py
-├── requirements.txt
-└── README.md
+black_scholes_pricer/  
+├── app/  
+│   ├── __init__.py  
+│   └── gui.py  
+├── pricer/  
+│   ├── __init__.py  
+│   ├── black_scholes.py  
+│   ├── greeks.py  
+│   └── american_option.py  
+├── utils/  
+│   ├── __init__.py  
+│   └── plotter.py  
+├── main.py  
+├── requirements.txt  
+└── README.md  
 
 ---
 
@@ -50,7 +50,7 @@ black_scholes_pricer/
 
 ```bash
 git clone https://github.com/cycy68/OptionsPricer.git
-cd black_scholes_pricer
+cd OptionsPricer
 ```
 
 ### 2. Install the dependencies
@@ -62,17 +62,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run main.py
 ```
-### 4. Change Option Parameters
-
-Edit the main.py file to change:
-
-S = 100         # Spot price
-K = 100         # Strike price
-T = 1           # Time to maturity (years)
-r = 0.05        # Risk-free rate
-sigma = 0.2     # Volatility
-option_type = 'call'  # or 'put'
-
 ---
 
 ## Author
