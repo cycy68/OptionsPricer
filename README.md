@@ -55,7 +55,9 @@ cd OptionsPricer
 
 ### 2. Install the dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 3. Run the App
 
